@@ -21,14 +21,15 @@ after_success:
   - docker push lacisoft/multi-server
   - docker push lacisoft/multi-worker
 
-#deploy:
-#  provider: elasticbeanstalk
-#  region: "us-east-1"
-#  app: "proj5-frontend"
-#  env: "Proj5Frontend-env"
-#  bucket_name: "elasticbeanstalk-us-east-1-113564655697"
-#  bucket_path: "proj5-frontend"
-#  on:
-#    branch: master
-#  access_key_id: "$AWS_ACCESS_KEY"
-#  secret_access_key: "$AWS_SECRET_KEY"
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-113564655697"
+  bucket_path: "multi-docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
